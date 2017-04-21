@@ -1,0 +1,32 @@
+html {
+  background-color: #ECECEC; }
+
+.board {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: 0 auto;
+  width: 400px; }
+
+.board .row {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin-bottom: 10px; }
+
+.board .row:last-of-type {
+  margin-bottom: 0; }
+
+.board .cell {
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  cursor: pointer;
+  flex: 1;
+  margin-right: 10px; }
+
+.board .cell:last-of-type {
+  margin-right: 0; }
+
+.board .cell:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16); }

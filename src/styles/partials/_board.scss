@@ -1,0 +1,39 @@
+$spacing_small: 10px;
+$spacing_standard: 20px;
+
+.board {
+  $cell_gutter: $spacing_small;
+
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  margin: 0 auto;
+  width: 400px;
+
+  .row {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin-bottom: $cell_gutter;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  .cell {
+    @include card(1);
+
+    background-color: $container_bg_color;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    margin-right: $cell_gutter;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+    &:hover {
+      @include card(2);
+    }
+  }
+}
