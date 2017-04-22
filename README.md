@@ -3,6 +3,8 @@ This is an implementation of Tic-Tac-Toe using React and Redux.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+Just run yarn install to get started.
+
 ![Game 1](https://i.imgur.com/MfaD15b.gif)
 
 ![Game 2](https://i.imgur.com/AvG1P9E.gif)
