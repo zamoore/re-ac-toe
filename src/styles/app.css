@@ -1,12 +1,41 @@
-html {
-  background-color: #ECECEC; }
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700");
+* {
+  font-family: "Roboto", sans-serif; }
+
+html, body {
+  background-color: #ECECEC;
+  padding: 0;
+  margin: 0; }
+
+.app {
+  height: 100vh;
+  padding: 30px;
+  transition: background-color 0.3s ease; }
+
+.app.X {
+  background: rgba(229, 57, 53, 0.8); }
+
+.app.O {
+  background: rgba(3, 169, 244, 0.5); }
+
+.game-container {
+  display: flex;
+  margin: 0 auto;
+  width: 600px; }
+
+.board-container {
+  flex: 1;
+  margin-right: 20px; }
+
+.game-details-container {
+  width: 200px; }
 
 .board {
   display: flex;
   flex-direction: column;
   height: 400px;
   margin: 0 auto;
-  width: 400px; }
+  width: 100%; }
 
 .board .row {
   display: flex;
@@ -24,7 +53,14 @@ html {
   border-radius: 4px;
   cursor: pointer;
   flex: 1;
+  font-size: 40px;
   margin-right: 10px; }
+
+.board .cell.X {
+  color: #E53935; }
+
+.board .cell.O {
+  color: #03A9F4; }
 
 .board .cell:last-of-type {
   margin-right: 0; }

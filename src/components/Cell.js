@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 
 class Cell extends Component {
   render() {
+    let { value, onClick } = this.props;
+
     return (
-      <button type="button" className="cell" onClick={() => this.props.onClick()}>
-        {this.props.value}
+      <button type="button" className={`cell ${value}`} onClick={() => onClick()}>
+        {value}
       </button>
     );
   }

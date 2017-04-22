@@ -24,11 +24,17 @@ class Game extends Component {
   }
   render() {
     return (
-      <section className="app">
-        <Board cells={this.props.cells} onClick={(i) => this.handleCellClick(i)} />
-        <Notification activePlayer={this.props.activePlayer} winner={checkForWin(this.props.cells)} />
-        <ResetGame onClick={() => this.props.resetGame()} />
-        <ScoreBoard xWinCount={this.props.xWinCount} oWinCount={this.props.oWinCount} />
+      <section className={`app ${checkForWin(this.props.cells) || this.props.activePlayer}`}>
+        <div className="game-container">
+          <div className="board-container">
+            <Board cells={this.props.cells} onClick={(i) => this.handleCellClick(i)} />
+          </div>
+          <div className="game-details-container">
+            <Notification activePlayer={this.props.activePlayer} winner={checkForWin(this.props.cells)} />
+            <ResetGame onClick={() => this.props.resetGame()} />
+            <ScoreBoard xWinCount={this.props.xWinCount} oWinCount={this.props.oWinCount} />
+          </div>
+        </div>
       </section>
     );
   }

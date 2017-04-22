@@ -21,7 +21,7 @@ function ticTacToe(state = initialState, action) {
 
       let winner = checkForWin(newState.cells);
 
-      if (winner) {
+      if (winner && winner !== 'D') {
         if (winner === 'X') {
           newState.xWinCount++;
         } else {

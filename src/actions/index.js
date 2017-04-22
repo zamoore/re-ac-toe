@@ -17,9 +17,3 @@ export function resetGame() {
     type: 'RESET_GAME'
   }
 };
-
-export function declareWinner() {
-  return {
-    type: 'DECLARE_WINNER'
-  }
-};

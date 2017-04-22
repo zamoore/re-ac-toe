@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 
 class Notification extends Component {
   render() {
-    if (this.props.winner) {
-      return (<p>{this.props.winner} is the winner!</p>);
+    let { winner } = this.props;
+
+    if (winner && winner !== 'D') {
+      return (<p className="notification-message">{this.props.winner} is the winner!</p>);
+    } else if (winner) {
+      return (<p className="notification-message">It's a draw!</p>)
     } else {
-      return (<p>{this.props.activePlayer} is next.</p>);
+      return (<p className="notification-message">{this.props.activePlayer} is next.</p>);
     }
   }
 }

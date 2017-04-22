@@ -20,5 +20,9 @@ export function checkForWin(cells) {
     }
   });
 
+  if (!winner && cells.every(cell => cell !== null)) {
+    winner = 'D';
+  }
+
   return winner;
 };
