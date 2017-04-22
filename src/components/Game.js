@@ -8,73 +8,44 @@ import Notification from './Notification';
 import ResetGame from './ResetGame';
 import ScoreBoard from './ScoreBoard';
 import { checkForWin } from '../utils';
-import { claimCell } from '../actions';
+import { claimCell, changePlayer, resetGame } from '../actions';
 
 // Styles
 import '../styles/app.css';
 
 class Game extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      activePlayer: 'X',
-      cells: Array(9).fill(null),
-      xWinCount: 0,
-      oWinCount: 0
-    };
-  }
-  handleWin() {
-    let winner = checkForWin(this.state.cells);
-
-    if (!winner) { return; }
-
-    this.setState({
-      activePlayer: this.state.activePlayer,
-      cells: this.state.cells,
-      xWinCount: winner === 'X' ? this.state.xWinCount + 1 : this.state.xWinCount,
-      oWinCount: winner === 'O' ? this.state.oWinCount + 1 : this.state.oWinCount,
-    });
-  }
   handleCellClick(i) {
-    const cells = this.state.cells.slice();
+    let { cells, claimCell, changePlayer } = this.props;
 
     if (checkForWin(cells) || cells[i] !== null) { return; }
 
-    cells[i] = this.state.activePlayer;
-    this.setState({
-      activePlayer: this.state.activePlayer === 'X' ? 'O' : 'X',
-      cells: cells,
-      xWinCount: this.state.xWinCount,
-      oWinCount: this.state.oWinCount
-    }, this.handleWin);
-  }
-  handleResetClick() {
-    this.setState({
-      activePlayer: 'X',
-      cells: Array(9).fill(null),
-      xWinCount: this.state.xWinCount,
-      oWinCount: this.state.oWinCount
-    });
+    claimCell(i);
+    changePlayer(this.props.activePlayer);
   }
   render() {
     return (
       <section className="app">
-        <Board cells={this.state.cells} onClick={(i) => this.handleCellClick(i)} />
-        <Notification activePlayer={this.state.activePlayer} winner={checkForWin(this.state.cells)} />
-        <ResetGame onClick={() => this.handleResetClick()} />
-        <ScoreBoard xWinCount={this.state.xWinCount} oWinCount={this.state.oWinCount} />
+        <Board cells={this.props.cells} onClick={(i) => this.handleCellClick(i)} />
+        <Notification activePlayer={this.props.activePlayer} winner={checkForWin(this.props.cells)} />
+        <ResetGame onClick={() => this.props.resetGame()} />
+        <ScoreBoard xWinCount={this.props.xWinCount} oWinCount={this.props.oWinCount} />
       </section>
     );
   }
 }
 
 export default connect(
-  (props) => props,
+  (props) => (props),
   (dispatch) => {
     return {
-      claimCell (index) {
+      claimCell(index) {
         dispatch(claimCell(index));
+      },
+      changePlayer(currentPlayer) {
+        dispatch(changePlayer(currentPlayer));
+      },
+      resetGame() {
+        dispatch(resetGame());
       }
     };
   }

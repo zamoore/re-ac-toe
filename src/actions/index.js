@@ -1,6 +1,25 @@
-export function claimSquare(index) {
+export function claimCell(index) {
   return {
-    type: 'CLAIM_SQUARE',
+    type: 'CLAIM_CELL',
     index
   };
+};
+
+export function changePlayer(currentPlayer) {
+  return {
+    type: 'CHANGE_PLAYER',
+    currentPlayer
+  }
+};
+
+export function resetGame() {
+  return {
+    type: 'RESET_GAME'
+  }
+};
+
+export function declareWinner() {
+  return {
+    type: 'DECLARE_WINNER'
+  }
 };
