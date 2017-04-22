@@ -1,4 +1,4 @@
-#Re-Ac-Toe
+# Re-Ac-Toe
 This is an implementation of Tic-Tac-Toe using React and Redux.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
