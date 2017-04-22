@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 
 class Notification extends Component {
   render() {
-    return (
-      <p className="notification">Testing</p>
-    );
+    if (this.props.winner) {
+      return (<p>{this.props.winner} is the winner!</p>);
+    } else {
+      return (<p>{this.props.activePlayer} is next.</p>);
+    }
   }
 }
 

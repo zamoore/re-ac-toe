@@ -5,9 +5,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 // App code
-import App from './components/App';
+import Game from './components/Game';
 
 ReactDOM.render(
-  <App />,
+  <Game />,
   document.getElementById('root')
 );

@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 class Cell extends Component {
   render() {
     return (
-      <div className="cell" onClick={() => alert('click')}>
-      </div>
+      <button type="button" className="cell" onClick={() => this.props.onClick()}>
+        {this.props.value}
+      </button>
     );
   }
 }
